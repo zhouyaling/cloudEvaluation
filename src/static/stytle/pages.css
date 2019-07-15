@@ -1,0 +1,994 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #FFFFFF;
+}
+
+/*弹出层*/
+.popu_div {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+  background: #000000;
+  z-index: 10;
+}
+
+.popu_div_content {
+  position: fixed;
+  float: left;
+  width: 2.67rem;
+  height: 1.61rem;
+  background: #ffffff;
+  z-index: 100;
+  border-radius: 15px;
+  top: 50%;
+  margin-top: -0.9rem;
+  left: 50%;
+  margin-left: -1.33rem;
+}
+
+.popu_div_content_title {
+  position: relative;
+  float: left;
+  width: 100%;
+  text-align: center;
+  margin-top: 0.27rem;
+  font-size: 0.18rem;
+  color: #434343;
+}
+
+.popu_div_content_title_no {
+  position: relative;
+  float: left;
+  width: 100%;
+  text-align: center;
+  /*margin-top: 0.27rem;*/
+  font-size: 0.18rem;
+  line-height: 1.12rem;
+  color: #434343;
+}
+
+.popu_div_content_con {
+  position: relative;
+  float: left;
+  width: 1.98rem;
+  left: 0.35rem;
+  margin-top: 0.08rem;
+  font-size: 14px;
+  color: #5A5A5A;
+}
+
+.popu_div_content_con_color {
+  color: #FF344D;
+}
+
+.popu_div_content_input {
+  position: relative;
+  float: left;
+  display: block;
+  width: 1.9rem;
+  height: 0.35rem;
+  background: #F7F7F7;
+  padding-left: 0.18rem;
+  margin-left: 0.28rem;
+  font-size: 0.15rem;
+  outline: none;
+  border: none;
+  border-radius: 17.5px;
+  margin-top: 0.14rem;
+}
+
+.popu_infro_div_content {
+  position: fixed;
+  float: left;
+  width: 2.67rem;
+  /*height: 2.24rem;*/
+  background: #ffffff;
+  z-index: 100;
+  border-radius: 15px;
+  top: 50%;
+  /*margin-top: -1.12rem;*/
+  left: 50%;
+  margin-left: -1.33rem;
+  margin-top: -1.35rem;
+  height: 2.7rem;
+}
+
+.popu_infro_div_contentT {
+  position: fixed;
+  float: left;
+  width: 2.67rem;
+  height: 2.24rem;
+  background: #ffffff;
+  z-index: 100;
+  border-radius: 15px;
+  top: 50%;
+  margin-top: -1.12rem;
+  left: 50%;
+  margin-left: -1.33rem;
+
+}
+
+.popu_div_content_btn {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 0.49rem;
+  line-height: 0.49rem;
+  text-align: center;
+  font-size: 0.16rem;
+  color: #FFFFFF;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-image: linear-gradient(-135deg, #F94B70 0%, #FF344D 100%);
+}
+
+.popu_div_content_btn_no {
+  background: #F9F9F9;
+  color: #ADABAB;
+}
+
+.popu_div_content_btn_le {
+  position: relative;
+  float: left;
+  width: 50%;
+  height: 100%;
+  border-bottom-left-radius: 15px;
+  /*border-bottom-right-radius: 15px;*/
+}
+
+.popu_div_content_btn_Re {
+  position: relative;
+  float: left;
+  width: 50%;
+  height: 100%;
+  border-bottom-right-radius: 15px;
+  background-image: linear-gradient(-135deg, #F94B70 0%, #FF344D 100%);
+}
+
+.bg_wi {
+  background: #ffffff;
+}
+
+/*弹出层*/
+/*首页*/
+.page_div {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+
+.home_logo {
+  position: relative;
+  float: left;
+  display: block;
+  width: 100%;
+  /*height: 1.67rem;*/
+  /*left: 50%;*/
+  /*margin-left: -1.15rem;*/
+  /*margin-top: 20%;*/
+}
+
+.home_text_name {
+  position: relative;
+  display: block;
+  float: left;
+  /*width: 90%;*/
+  /*margin-left: 5%;*/
+  /*height: 1.67rem;*/
+
+  width: 2.1rem;
+  left: 50%;
+  margin-left: -1.05rem;
+  text-align: center;
+  font-size: 0.18rem;
+  margin-top: 10%;
+}
+
+.home_text_name_text {
+  color: #FE3955;
+}
+
+.home_addres {
+  position: relative;
+  float: left;
+  width: 2.6rem;
+  color: #8F8F8F;
+  font-size: 0.13rem;
+  left: 50%;
+  margin-left: -1.02rem;
+  margin-top: 20%;
+}
+
+.home_addres_img {
+  position: relative;
+  float: left;
+  width: 0.11rem;
+  height: 0.15rem;
+  margin-right: 0.1rem;
+}
+
+.home_btn {
+  position: relative;
+  float: left;
+  width: 2.49rem;
+  left: 50%;
+  height: 0.65rem;
+  margin-left: -1.245rem;
+  margin-top: 15%;
+  /*z-index: 100;*/
+}
+
+/*首页*/
+
+/*评价页面*/
+.appra_div {
+  position: relative;
+  float: left;
+  width: 3.1rem;
+  left: 50%;
+  margin-left: -1.55rem;
+  margin-bottom: 1.5rem;
+}
+
+.appra_msg {
+  position: relative;
+  float: left;
+  /*width: 100%;*/
+  margin-left: 0.1rem;
+  margin-top: 0.14rem;
+  font-size: 0.14rem;
+  color: #3D3D3D;
+
+}
+
+.appra_msg_span {
+  color: #FFD819
+}
+
+.appra_msg_line {
+  position: absolute;
+  width: 0.06rem;
+  height: 0.17rem;
+  top: 0.04rem;
+  left: -0.12rem;
+  background-image: linear-gradient(-135deg, #F94B70 0%, #FF344D 100%);
+  border-radius: 3px;
+}
+
+.appra_title {
+  position: relative;
+  float: left;
+  font-size: 0.18rem;
+  color: #3D3D3D;
+  letter-spacing: 0;
+  text-align: left;
+  margin-bottom: 0.16rem;
+  margin-top: 0.26rem;
+}
+
+.appra_score_img {
+  position: relative;
+  display: block;
+  float: left;
+  width: 0.26rem;
+  height: 0.26rem;
+  margin-right: 0.2rem;
+}
+
+appra_score_img_divT {
+  position: relative;
+  float: left;
+  width: 2.3rem;
+}
+
+.appra_score_img_div {
+  position: absolute;
+  float: left;
+  z-index: 10;
+}
+
+.appra_score_img_num {
+  position: relative;
+  float: left;
+  margin-left: 0.3rem;
+  color: #FFD819;
+  font-size: 0.24rem;
+}
+
+.appra_score_img_num_span {
+  font-size: 0.12rem;
+}
+
+.remindertext {
+  font-size: 0.14rem;
+  color: #FF344D;
+  margin-top: 0.2rem;
+}
+
+.appra_checkbox_margin {
+  margin-top: 0.24rem;
+  /*margin-bottom: 0.1rem;*/
+}
+
+.appra_checkbox {
+  position: relative;
+  float: left;
+  background: #FFFFFF;
+  border: 1px solid #EFEFEF;
+  border-radius: 15px;
+  font-size: 0.12rem;
+  color: #5C5C5C;
+  padding: 0.07rem 0.15rem;
+  margin-right: 0.12rem;
+  margin-bottom: 0.1rem;
+}
+
+.appra_textarea_border {
+  border: 1px solid #EFEFEF;
+  border-radius: 6px;
+  min-height: 0.5rem;
+}
+
+.appra_textarea {
+  position: relative;
+  float: left;
+  width: 2.9rem;
+  outline: none;
+  border: none;
+  padding-left: 0.12rem;
+  /*padding-top: 0.12rem;*/
+  height: 0.7rem;
+}
+
+.appra_checkbox_tex {
+  position: relative;
+  float: left;
+  background: #FFFFFF;
+  border: 1px solid #EFEFEF;
+  border-radius: 15px;
+  font-size: 0.12rem;
+  color: #5C5C5C;
+  padding: 0.07rem 0.15rem;
+  margin-left: 0.12rem;
+  margin-top: 0.12rem;
+  margin-bottom: 0.1rem;
+
+}
+
+.appra_checkbox_tex_img {
+  position: absolute;
+  display: block;
+  right: -0.03rem;
+  top: -0.03rem;
+  width: 0.15rem;
+  height: 0.15rem;
+}
+
+.callPhoneDiv {
+  position: fixed;
+  bottom: 0.5rem;
+  height: 0.4rem;
+  width: 100%;
+  background: #FFFFFF;
+  z-index: 1000;
+}
+
+.callPhoneA {
+  position: absolute;
+  bottom: 0.1rem;
+  display: block;
+  float: left;
+  width: 1.2rem;
+  left: 50%;
+  margin-left: -0.6rem;
+  text-align: center;
+  font-size: 0.14rem;
+  text-decoration: none;
+  color: #000000;
+  margin-top: 0.3rem;
+  z-index: 1000;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-user-select: none;
+  -moz-user-focus: none;
+  -moz-user-select: none;
+
+}
+
+.callPhoneAImg {
+  position: absolute;
+  left: -0.05rem;
+  width: 0.2rem;
+  /*top: 0.01rem;*/
+  line-height: 0.6rem;
+}
+
+.appra_checkbox_active {
+  color: #FFFFFF;
+  border: none;
+  border: 1px solid #F94B70;
+  background-image: linear-gradient(-135deg, #F94B70 0%, #FF344D 100%);
+}
+
+.appra_btn {
+  position: fixed;
+  width: 100%;
+  height: 0.5rem;
+  bottom: 0;
+  z-index: 1000;
+}
+
+.appra_btn_div {
+  position: relative;
+  float: left;
+  width: 50%;
+  height: 100%;
+  text-align: center;
+  line-height: 0.5rem;
+  font-size: 0.16rem;
+}
+
+.appra_btn_div_one {
+  background: #F9F9F9;
+  color: #ADABAB;
+}
+
+.appra_btn_div_tow {
+  background-image: linear-gradient(-135deg, #F94B70 0%, #FF344D 100%);
+  color: #FFFFFF;
+}
+
+.appra_msg_tishi {
+  position: absolute;
+  float: left;
+  width: 100%;
+  font-size: 0.14rem;
+  color: #FF344D;
+  top: 50%;
+  text-align: center;
+}
+
+/*评价页面*/
+
+/*抽奖*/
+.luck_msg {
+  position: relative;
+  float: left;
+  width: 3.1rem;
+  left: 50%;
+  margin-left: -1.55rem;
+  font-size: 0.14rem;
+  color: #3D3D3D;
+  margin-top: 0.14rem;
+  z-index: 10;
+}
+
+.lunck_content {
+  position: fixed;
+  float: left;
+  width: 100%;
+  bottom: 0;
+}
+
+.luck_img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 5.5rem;
+}
+
+.luck_level {
+  position: absolute;
+  width: 2.42rem;
+  height: 0.68rem;
+  z-index: 100;
+  top: 1.3rem;
+  left: 50%;
+  margin-left: -1.21rem;
+  text-align: center;
+  line-height: 0.71rem;
+  font-size: 0.16rem;
+  color: #BF2843;
+  overflow: hidden;
+}
+
+.luck_levelTT {
+  position: absolute;
+  width: 2.42rem;
+  height: 0.68rem;
+  z-index: 100;
+  top: 1.3rem;
+  left: 50%;
+  margin-left: -1.21rem;
+  text-align: center;
+  line-height: 0.71rem;
+  font-size: 0.16rem;
+  color: #BF2843;
+  overflow: hidden;
+}
+
+.luck_levelT {
+  position: relative;
+  float: left;
+  height: 100%;
+  width: 100%;
+}
+
+.luck_msg_red {
+  color: #BF2843;
+}
+
+.luck_Btn {
+  position: absolute;
+  height: 0.7rem;
+  width: 1.52rem;
+  text-align: center;
+  left: 50%;
+  margin-left: -0.76rem;
+  top: 2.5rem;
+  z-index: 100;
+  font-size: 0.16rem;
+  color: #FFFFFF;
+  line-height: 0.4rem;
+}
+
+.luck_Btn_bg {
+  background: #ADABAB;
+  height: 0.5rem;
+  line-height: 0.5rem;
+  width: 1.52rem;
+  border-radius: 5px;
+  opacity: 0.9;
+}
+
+.luck_Btn_img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.luck_List {
+  position: absolute;
+  width: 2.2rem;
+  height: 1.15rem;
+  bottom: 0.85rem;
+  z-index: 100;
+  left: 50%;
+  margin-left: -1.11rem;
+  overflow: hidden;
+}
+
+.luck_item {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 0.34rem;
+  border-bottom: 1px solid #F3F3F3;
+  font-size: 12px;
+  line-height: 0.34rem;
+}
+
+.luck_item_le {
+  position: relative;
+  float: left;
+  width: 1.5rem;
+  text-align: left;
+  color: #3D3D3D;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+
+.luck_item_re {
+  position: relative;
+  float: right;
+  color: #FE354E;
+}
+
+/*抽奖*/
+
+/*中奖公告*/
+.record_img_bg {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  float: left;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.record_img_title {
+  position: relative;
+  display: block;
+  float: left;
+  width: 100%;
+  z-index: 10;
+}
+
+.record_div {
+  position: relative;
+  float: left;
+  width: 2.8rem;
+  min-height: 2.5rem;
+  background: #ffffff;
+  opacity: 0.8;
+  z-index: 10;
+  left: 50%;
+  margin-left: -1.4rem;
+  margin-top: 0.2rem;
+  border-radius: 6px;
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.record_tite_img {
+  position: relative;
+  float: left;
+  display: block;
+  width: 44%;
+  margin-left: 4%;
+  margin-top: 0.15rem;
+}
+
+.record_contentNo_img {
+  position: relative;
+  display: block;
+  float: left;
+  width: 1rem;
+  height: 0.8rem;
+  left: 50%;
+  margin-left: -0.5rem;
+  margin-top: 0.5rem;
+}
+
+.record_contentNo_text {
+  position: relative;
+  float: left;
+  width: 100%;
+  text-align: center;
+  font-size: 0.13rem;
+  margin-top: 0.25rem;
+  color: rgb(200, 45, 27);
+}
+
+.record_content_myList {
+  position: relative;
+  float: left;
+  width: 100%;
+  margin-top: 0.2rem;
+  height: 1.7rem;
+  overflow: hidden;
+}
+
+.record_content_myItem {
+  position: relative;
+  float: left;
+  width: 80%;
+  margin-left: 10%;
+  text-align: center;
+  font-size: 0.13rem;
+  color: rgb(200, 45, 27);
+  line-height: 0.3rem;
+}
+
+.record_allContent_div {
+  position: relative;
+  float: left;
+  width: 80%;
+  margin-left: 10%;
+  height: 2rem;
+  margin-top: 0.2rem;
+  overflow: hidden;
+}
+
+.record_allContent {
+  position: relative;
+  float: left;
+  width: 100%;
+  margin-top: 0.2rem;
+}
+
+.record_allContent_title {
+  position: relative;
+  width: 100%;
+  float: left;
+  text-align: center;
+  font-size: 0.13rem;
+  font-weight: 600;
+  color: rgb(133, 83, 34);
+  margin-bottom: 0.1rem;
+}
+
+.record_allContent_title_img {
+  position: absolute;
+  display: block;
+  width: 100%;
+  bottom: -0.05rem;
+  z-index: -1;
+}
+
+.record_allContent_item {
+  position: relative;
+  float: left;
+  width: 80%;
+  margin-left: 10%;
+  font-size: 0.13rem;
+  color: rgb(200, 45, 27);
+  line-height: 0.3rem;
+  text-align: center;
+}
+
+/*中奖公告*/
+
+/*中将修改*/
+.lu_bg_img {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  /*z-index: 1;*/
+  overflow: hidden;
+}
+
+.lu_bg_img_bg {
+  position: absolute;
+  display: block;
+  width: 100%;
+  /*height: 100%;*/
+  top: 0;
+}
+
+.lu_msg {
+  position: relative;
+  width: 3rem;
+  float: left;
+  font-size: 0.16rem;
+  color: #FFFFFF;
+  z-index: 5;
+  left: 50%;
+  margin-left: -1.5rem;
+  margin-top: 0.38rem;
+}
+
+.lu_msg_span {
+  /*float: left;*/
+  font-size: 0.18rem;
+  text-decoration: underline;
+}
+
+.lu_div {
+  position: relative;
+  float: left;
+  width: 3rem;
+  height: 3rem;
+  left: 50%;
+  margin-left: -1.5rem;
+  margin-top: 0.4rem;
+  z-index: 5;
+
+}
+
+.lu_divT {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+
+.lu_div_img {
+  position: relative;
+  display: block;
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+
+.lu_div_span {
+  position: absolute;
+  font-size: 0.14rem;
+  width: 1.5rem;
+  color: #F8A200;
+  letter-spacing: 0;
+  text-align: left;
+  z-index: 6;
+}
+
+.lu_div_span_one {
+  left: 15%;
+  top: 40%;
+}
+
+.lu_div_span_tow {
+  left: 25%;
+  top: 35%;
+}
+
+.lu_div_span_three {
+  left: 36%;
+  top: 42%;
+}
+
+.lu_div_span_four {
+  left: 33%;
+  top: 54%;
+}
+
+.lu_div_span_five {
+  left: 23%;
+  top: 58%;
+}
+
+.lu_div_span_six {
+  left: 15%;
+  top: 50%;
+}
+
+.lu_div_btn {
+  position: absolute;
+  width: 0.6rem;
+  height: 0.7rem;
+  left: 50%;
+  top: 50%;
+  margin-left: -0.3rem;
+  margin-top: -0.2rem;
+  z-index: 10;
+
+}
+
+.lu_div_btn_img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.lu_div_btn_text {
+  position: absolute;
+  width: 100%;
+  font-size: 0.14rem;
+  text-align: center;
+  color: #FA7935;
+  top: 0.2rem;
+}
+
+.luman {
+  position: relative;
+  float: left;
+  width: 3.1rem;
+  height: 2.05rem;
+  left: 50%;
+  margin-left: -1.55rem;
+  z-index: 5;
+  margin-top: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.luman_img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.luman_title {
+  position: absolute;
+  float: left;
+  width: 100%;
+  text-align: center;
+  color: #EA233B;
+  font-size: 0.2rem;
+  z-index: 5;
+  top: 0.18rem;
+}
+
+.luman_title_A {
+  position: absolute;
+  left: 0.8rem;
+  top: 0.1rem;
+  width: 0.23rem;
+  height: 0.02rem;
+  background: #FB354E;
+}
+
+.luman_title_B {
+  position: absolute;
+  right: 0.8rem;
+  top: 0.1rem;
+  width: 0.23rem;
+  height: 0.02rem;
+  background: #FB354E;
+}
+
+.luman_title_C {
+  position: absolute;
+  left: 0.88rem;
+  top: 0.18rem;
+  width: 0.15rem;
+  height: 0.02rem;
+  background: #FF8796;
+}
+
+.luman_title_D {
+  position: absolute;
+  right: 0.88rem;
+  top: 0.18rem;
+  width: 0.15rem;
+  height: 0.02rem;
+  background: #FF8796;
+}
+
+.luman_List {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.15rem;
+  width: 2.8rem;
+  height: 1.23rem;
+  overflow: hidden;
+  /*background: #333333;*/
+}
+
+.luman_item {
+  position: relative;
+  float: left;
+  width: 2.7rem;
+  height: 0.4rem;
+  margin-left: 0.05rem;
+  border-bottom: 1px solid #F6CDD2;
+}
+
+.luman_item_proName {
+  position: relative;
+  float: left;
+  width: 0.9rem;
+  height: 100%;
+  margin-left: 0.1rem;
+  line-height: 0.4rem;
+  font-size: 0.15rem;
+  overflow: hidden; /*超出部分隐藏*/
+  white-space: nowrap; /*不换行*/
+  text-overflow: ellipsis; /*超出部分文字以...显示*/
+  color: #894850;
+}
+
+.luman_item_proNameB {
+  position: relative;
+  float: left;
+  width: 0.5rem;
+  height: 100%;
+  line-height: 0.4rem;
+  font-size: 0.15rem;
+  overflow: hidden; /*超出部分隐藏*/
+  white-space: nowrap; /*不换行*/
+  text-overflow: ellipsis; /*超出部分文字以...显示*/
+  color: #894850;
+  margin-left: 0.1rem;
+}
+
+.luman_item_proNameC {
+  position: relative;
+  float: left;
+  width: 1rem;
+  height: 100%;
+  line-height: 0.4rem;
+  font-size: 0.15rem;
+  text-align: right;
+  overflow: hidden; /*超出部分隐藏*/
+  white-space: nowrap; /*不换行*/
+  text-overflow: ellipsis; /*超出部分文字以...显示*/
+  color: #FA364E;
+}
+
+.lu_div_span_active {
+  color: #FA364E;
+}
+
+/*中将修改*/

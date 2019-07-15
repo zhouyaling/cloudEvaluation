@@ -1,0 +1,34 @@
+@media screen and (min-width: 319px) {
+  html {
+    font-size: 85px;
+  }
+}
+@media screen and (min-width: 359px) {
+  html {
+    font-size: 95px;
+  }
+}
+@media screen and (min-width: 374px) {
+  html {
+    font-size: 100px;
+  }
+}
+@media screen and (min-width: 413px) {
+  html {
+    font-size: 109px;
+  }
+}
+@media screen and (min-width: 767px) {
+  html {
+    font-size: 204px;
+  }
+}
+@media screen and (min-width: 1023px) {
+  html {
+    font-size: 273px;
+  }
+}
+
+html {
+  font-size: 100px;
+}
