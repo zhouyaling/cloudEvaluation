@@ -59,6 +59,7 @@ export default {
 
     goAppraise() {
       let _this = this;
+
       if (_this.data.status == "N") {
         _this.$router.push({
           name: "appraise"
@@ -84,11 +85,6 @@ export default {
         spinnerType: "fading-circle"
       });
 
-      //  挡板
-      /* _this.$router.push({
-        name: "appraise"
-      });
-      return; */
       wx.getLocation({
         type: "wgs84", // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
         success: function(res) {
@@ -205,9 +201,12 @@ export default {
     _this.urlData = JSON.parse(localStorage.getItem("cloudEvaluationUrlData"));
 
     //点位Id
-    //localStorage.setItem("cloudEvaluationPointId", "1560745493490366"); 
+   // localStorage.setItem("cloudEvaluationPointId", "1567508064829635");
     //用户ID
-    //localStorage.setItem("cloudEvaluationOpenId", "oK0Jcv29DF1iZiOALZ_XDuVJ0txU"); 
+    /* localStorage.setItem(
+      "cloudEvaluationOpenId",
+      "oK0Jcv6pyM_thF3HbrZ01jd9sefg"
+    ); */
 
     _this.OpenId = localStorage.getItem("cloudEvaluationOpenId");
     _this.PointId = localStorage.getItem("cloudEvaluationPointId");

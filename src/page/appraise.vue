@@ -13,17 +13,17 @@
         </div>
       </div>
 
-      <div class="page_div " style="background: #ffffff;z-index: 10" v-for="(item,index) in data">
+      <div class="page_div " style="background: #ffffff;z-index: 10" v-for="(item,index) in data" :key="index" >
         <!---->
-        <div class="appra_title">{{item.titleName}}</div>
+        <div class="appra_title"  :id="`tipName` + index">{{item.titleName}}</div>
         <div class="page_div">
           <div class="appra_score_img_div">
             <img class="appra_score_img" src="../assets/A005.png" v-for="(itemG,indexG) in grade"
-                 v-if="(indexG+1)<=item.score" @click="setGrade(indexG,index)">
+                 v-if="(indexG+1)<=item.score" @click="setGrade(indexG,index)" :key="indexG">
           </div>
           <div class="appra_score_img_divT">
             <img class="appra_score_img" src="../assets/A004.png" v-for="(itemG,indexG) in grade"
-                 @click="setGrade(indexG,index)">
+                 @click="setGrade(indexG,index)" :key="indexG">
           </div>
           <div class="appra_score_img_num">
             <!--{{item.score}}-->
@@ -37,16 +37,16 @@
         <div class="page_div remindertext" v-if="item.score<4&&item.score!=0">
           请告诉小金妹您不满意的原因吧~
         </div>
-        <div class="page_div appra_checkbox_margin" v-if="item.score<4&&item.score!=0">
+        <div class="page_div appra_checkbox_margin" v-if="item.score<4&&item.score!=0" >
           <!---->
           <div class="appra_checkbox " :class="items.isNO ? 'appra_checkbox_active' : '' "
-               v-for="(items,indexs) in item.listBarT" @click="checkbox(indexs,index)"> {{items.name}}
+               v-for="(items,indexs) in item.listBarT" @click="checkbox(indexs,index)" :key="indexs"> {{items.name}} 
           </div>
         </div>
-        <div class="page_div appra_textarea_border" v-if="item.score<4&&item.score!=0">
+        <div class="page_div appra_textarea_border" v-if="item.score<4&&item.score!=0" :id="`subTipName` + index">
           <div class="page_div">
             <div class="appra_checkbox_tex appra_checkbox_active" v-for="(itemIs,indexIs) in item.listBarT"
-                 v-if="itemIs.isNO" @click="checkbox(indexIs,index)">
+                 v-if="itemIs.isNO" @click="checkbox(indexIs,index)" :key="indexIs">
               {{itemIs.name}}
               <img class="appra_checkbox_tex_img" src="../assets/A006.png"></div>
           </div>
@@ -93,210 +93,216 @@
 </template>
 
 <script>
-  import {Toast} from 'mint-ui';
-  //
-  export default {
-    data() {
-      return {
-        openId: "",
-        PointId: "",
-        projectId: "",
-        projectName: "",
-        PointName: "",
+import { Toast } from "mint-ui";
+//
+export default {
+  data() {
+    return {
+      openId: "",
+      PointId: "",
+      projectId: "",
+      projectName: "",
+      PointName: "",
 
-        data: [],
-        grade: [0, 1, 2, 3, 4],
-        user: {},
-        userPhone: false,
-        isPJ: false,
-        isShow: false,
-      }
+      data: [],
+      grade: [0, 1, 2, 3, 4],
+      user: {},
+      userPhone: false,
+      isPJ: false,
+      isShow: false
+    };
+  },
+  computed: {},
+  watch: {},
+  methods: {
+    sendScoreT() {
+      window.location.href =
+        "http://www.tq-service.com/jkpros/Home/Postit/index";
     },
-    computed: {},
-    watch: {},
-    methods: {
-      sendScoreT() {
-        window.location.href = 'http://www.tq-service.com/jkpros/Home/Postit/index'
-      },
-      //评价信息
-      getScoreItem() {
-        let _this = this;
+    //评价信息
+    getScoreItem() {
+      let _this = this;
 
-        let formData = new FormData();
-        formData.append("projectId", _this.projectId);
-        formData.append("openId", _this.openId);
+      let formData = new FormData();
+      formData.append("projectId", _this.projectId);
+      formData.append("openId", _this.openId);
 
-        let data = {
-          data: formData
-        };
-        this.$server.getScoreItem(data).then(data => {
-          var data = data.data.listData;
-          /*  var data = [{"listBar":"蚊子多,垃圾多,灰尘多,园区草木未休剪","projectName":"金科智慧城",
+      let data = {
+        data: formData
+      };
+      this.$server.getScoreItem(data).then(data => {
+        var data = data.data.listData;
+        /*  var data = [{"listBar":"蚊子多,垃圾多,灰尘多,园区草木未休剪","projectName":"金科智慧城",
              "id":"1556076878833117","surveyName":"4.24","surveyId":"1556076878832716","titleName":"环境测试"},
              {"surveyName":"4.24","titleName":"电梯测试","surveyId":"1556076878832716",
                "projectName":"金科智慧城","listBar":"电梯清洁差,抖动,广告多,测试B","id":"1556076878836851"}];
            console.log(JSON.stringify(data)) */
-          if (data.length == 0) {
-            Toast({
-              message: "当前点位暂时不可评价",
-              position: 'bottom',
-              duration: 5000
-            });
-            return
-          }
-          for (var i = 0; i < data.length; i++) {
-            //评价先选项
-            data[i].listBarT = this.$trigger.strToArr(data[i].listBar);
-            // 评价分数
-            data[i].score = 0
-          }
-          _this.isShow = true;
-          _this.data = data
-        })
-      },
-      //个人信息
-      getUserInfor() {
-        let _this = this;
-
-        let formData = new FormData();
-        formData.append("openId", _this.openId);
-        let data = {
-          data: formData
-        };
-        this.$server.judgeOwner(data).then(data => {
-          if (data.data.listData.length == 0) {
-            _this.userPhone = true;
-            _this.phone = ""
-          } else {
-            _this.phone = data.data.listData[0].phone;
-          }
-        })
-      },
-      judgeComplete() {
-        let _this = this;
-        let formData = new FormData();
-        formData.append("openId", _this.openId);
-        let data = {
-          data: formData
-        };
-        this.$server.judgeComplete(data).then(data => {
-          _this.isPJ = true
-        })
-      },
-
-      sendScore() {
-        let _this = this;
-        let dataArr = _this.data;
-        if (!_this.isPJ) {
-          Toast({
-            message: "您今天已经评价过!",
-            position: 'bottom',
-            duration: 5000
-          });
-          return
-        }
-        if (_this.data.length == 0) {
+        if (data.length == 0) {
           Toast({
             message: "当前点位暂时不可评价",
-            position: 'bottom',
+            position: "bottom",
             duration: 5000
           });
-          return
+          return;
         }
-        let ArrData = [];
-        for (var i = 0; i < dataArr.length; i++) {
-          if (dataArr[i].score == 0) {
+        for (var i = 0; i < data.length; i++) {
+          //评价先选项
+          data[i].listBarT = this.$trigger.strToArr(data[i].listBar);
+          // 评价分数
+          data[i].score = 0;
+        }
+        _this.isShow = true;
+        _this.data = data;
+      });
+    },
+    //个人信息
+    getUserInfor() {
+      let _this = this;
+
+      let formData = new FormData();
+      formData.append("openId", _this.openId);
+      let data = {
+        data: formData
+      };
+      this.$server.judgeOwner(data).then(data => {
+        if (data.data.listData.length == 0) {
+          _this.userPhone = true;
+          _this.phone = "";
+        } else {
+          _this.phone = data.data.listData[0].phone;
+        }
+      });
+    },
+    judgeComplete() {
+      let _this = this;
+      let formData = new FormData();
+      formData.append("openId", _this.openId);
+      let data = {
+        data: formData
+      };
+      this.$server.judgeComplete(data).then(data => {
+        _this.isPJ = true;
+      });
+    },
+
+    sendScore() {
+      let _this = this;
+      let dataArr = _this.data;
+      if (!_this.isPJ) {
+        Toast({
+          message: "您今天已经评价过!",
+          position: "bottom",
+          duration: 5000
+        });
+        return;
+      }
+      if (_this.data.length == 0) {
+        Toast({
+          message: "当前点位暂时不可评价",
+          position: "bottom",
+          duration: 5000
+        });
+        return;
+      }
+      let ArrData = [];
+      for (var i = 0; i < dataArr.length; i++) {
+        if (dataArr[i].score == 0) {
+          document.querySelector("#tipName" + i).scrollIntoView();
+          Toast({
+            message: "请评价所有问卷！",
+            position: "bottom",
+            duration: 5000
+          });
+          ArrData = [];
+          return;
+          // break
+        }
+        var listBar = "";
+        if (dataArr[i].score < 4) {
+          listBar = this.$trigger.arrToStr(dataArr[i].listBarT);
+          if (listBar == "") {
+            document.querySelector("#tipName" + i).scrollIntoView();
             Toast({
-              message: "请评价所有问卷！",
-              position: 'bottom',
+              message: "请选择评价内容！",
+              position: "bottom",
               duration: 5000
             });
-            ArrData = [];
-            return
-            // break
+            return;
           }
-          var listBar = '';
-          if (dataArr[i].score < 4) {
-            listBar = this.$trigger.arrToStr(dataArr[i].listBarT);
-            if (listBar == "") {
-              Toast({
-                message: "请选择评价内容！",
-                position: 'bottom',
-                duration: 5000
-              });
-              return
-            }
-          }
-          var Arr = {
-            "title": dataArr[i].titleName,
-            "listBar": listBar,
-            "score": dataArr[i].score
-          };
-          ArrData.push(Arr)
         }
-        // console.log(ArrData)
-        let listData = {
-          "pointId": _this.PointId,
-          "pointName": _this.PointName,
-          "surveyId": dataArr[0].surveyId,
-          "surveyName": dataArr[0].projectName,
-          "projectName": _this.projectName,
-          "projectId": _this.projectId,
-          "userId": _this.openId,
-          // "phone": _this.phone,
-          "listData": ArrData
+        var Arr = {
+          title: dataArr[i].titleName,
+          listBar: listBar,
+          score: dataArr[i].score
         };
+        ArrData.push(Arr);
+      }
+      // console.log(ArrData)
+      let listData = {
+        pointId: _this.PointId,
+        pointName: _this.PointName,
+        surveyId: dataArr[0].surveyId,
+        surveyName: dataArr[0].projectName,
+        projectName: _this.projectName,
+        projectId: _this.projectId,
+        userId: _this.openId,
+        // "phone": _this.phone,
+        listData: ArrData
+      };
 
-        let formData = new FormData();
-        formData.append("openId", _this.openId);
-        formData.append("sendObj", JSON.stringify(listData));
+      let formData = new FormData();
+      formData.append("openId", _this.openId);
+      formData.append("sendObj", JSON.stringify(listData));
 
-        let data = {
-          data: formData
-        };
-        this.$server.sendScore(data).then(data => {
-          _this.isPJ = false;
-          Toast({
-            message: "已提交评价",
-            position: 'bottom',
-            duration: 5000
+      let data = {
+        data: formData
+      };
+
+      return;
+
+      this.$server.sendScore(data).then(data => {
+        _this.isPJ = false;
+        Toast({
+          message: "已提交评价",
+          position: "bottom",
+          duration: 5000
+        });
+        setTimeout(function() {
+          _this.$router.push({
+            name: "luckydraw"
           });
-          setTimeout(function () {
-            _this.$router.push({
-              name: "luckydraw"
-            })
-          }, 3000)
-        })
-      },
-      checkbox(type, num) {
-        let _this = this;
-        let data = _this.data;
-        //type 点击的第几个  num 第几个Arr
-        data[num].listBarT[type].isNO = !data[num].listBarT[type].isNO;
-        _this.data = data;
-      },
-      noPopu() {
-        let _this = this;
-        _this.userPhone = false;
-      },
-      setGrade(type, num) {
-        //type 点击的第几个  num 第几个Arr
-        let _this = this;
-        let data = _this.data;
-        data[num].score = type + 1;
-        _this.data = data;
-      },
+        }, 3000);
+      });
     },
-    mounted() {
+    checkbox(type, num) {
       let _this = this;
-      _this.openId = localStorage.getItem("cloudEvaluationOpenId");
-      _this.PointId = localStorage.getItem("cloudEvaluationPointId");
-      _this.projectId = localStorage.getItem("cloudEvaluationProjectId");
-      _this.projectName = localStorage.getItem("cloudEvaluationProjectName");
-      _this.PointName = localStorage.getItem("cloudEvaluationPointName");
-      _this.getScoreItem();
-      // _this.getUserInfor();
-      _this.judgeComplete();
+      let data = _this.data;
+      //type 点击的第几个  num 第几个Arr
+      data[num].listBarT[type].isNO = !data[num].listBarT[type].isNO;
+      _this.data = data;
+    },
+    noPopu() {
+      let _this = this;
+      _this.userPhone = false;
+    },
+    setGrade(type, num) {
+      //type 点击的第几个  num 第几个Arr
+      let _this = this;
+      let data = _this.data;
+      data[num].score = type + 1;
+      _this.data = data;
     }
+  },
+  mounted() {
+    let _this = this;
+    _this.openId = localStorage.getItem("cloudEvaluationOpenId");
+    _this.PointId = localStorage.getItem("cloudEvaluationPointId");
+    _this.projectId = localStorage.getItem("cloudEvaluationProjectId");
+    _this.projectName = localStorage.getItem("cloudEvaluationProjectName");
+    _this.PointName = localStorage.getItem("cloudEvaluationPointName");
+    _this.getScoreItem();
+    // _this.getUserInfor();
+    _this.judgeComplete();
   }
+};
 </script>

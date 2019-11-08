@@ -1,7 +1,7 @@
 import { post } from './http-service.js'
 
-//var serve = "http://dev.tq-service.com/evaluate/";
-var serve = "http://www.tq-service.com/evaluate/";
+var serve = "http://dev.tq-service.com/evaluate/";
+//var serve = "http://www.tq-service.com/evaluate/";
 
 export const server = {
     //获取评价点
