@@ -181,11 +181,23 @@ export default {
         data: formData
       };
       this.$server.judgeComplete(data).then(data => {
-        _this.isPJ = true;
+       // _this.isPJ = true;
+       console.log("判断是否评价");
+       if(data.errcode==1){
+          _this.isPJ = true;
+       }
+       /* else{
+          Toast({
+          message: "您今天已经评价过!",
+          position: "bottom",
+          duration: 5000
+          });
+       } */
       });
     },
 
     sendScore() {
+      console.log("提交");
       let _this = this;
       let dataArr = _this.data;
       if (!_this.isPJ) {
@@ -258,7 +270,8 @@ export default {
         data: formData
       };
 
-      return;
+      // 挡板
+      // return;
 
       this.$server.sendScore(data).then(data => {
         _this.isPJ = false;

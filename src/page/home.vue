@@ -1,10 +1,10 @@
 <template>
   <div id="app" style="background: #F5F6F7">
     <div class="page_div">
-      <img class="home_logo" src="../assets/A001.png">
+      <img class="home_logo" src="../assets/A001.png" />
     </div>
     <div class="page_div">
-      <img class="home_text_name" src="../assets/A020.png">
+      <img class="home_text_name" src="../assets/A020.png" />
       <!--<div class="home_text_name">-->
 
       <!--<span class="home_text_name_text">金科</span>环境云评价系统-->
@@ -12,19 +12,18 @@
     </div>
     <div class="page_div">
       <div class="home_addres">
-        <img class="home_addres_img" src="../assets/A010.png"> {{data.projectName}}{{data.pointName}}
+        <img class="home_addres_img" src="../assets/A010.png" />
+        {{data.projectName}}{{data.pointName}}
       </div>
     </div>
 
-    <img class="home_btn" src="../assets/A002.png" @click="goAppraise">
+    <img class="home_btn" src="../assets/A002.png" @click="goAppraise" />
 
     <div class="popu_div" v-if="isPopu"></div>
     <div class="popu_div_content" v-if="isPopu">
       <div class="popu_div_content_title">提示信息</div>
       <div class="popu_div_content_con">您当前定位与评测点位置不符，不能评价！</div>
-      <div class="popu_div_content_btn" @click="noisPopu">
-        确定
-      </div>
+      <div class="popu_div_content_btn" @click="noisPopu">确定</div>
     </div>
 
     <div id="container"></div>
@@ -59,6 +58,12 @@ export default {
 
     goAppraise() {
       let _this = this;
+
+      // 挡板
+      /* _this.$router.push({
+        name: "appraise"
+      });
+      return; */
 
       if (_this.data.status == "N") {
         _this.$router.push({
@@ -115,10 +120,10 @@ export default {
       });
     },
     GetDistance(lat1, lng1, lat2, lng2) {
-      var radLat1 = lat1 * Math.PI / 180.0;
-      var radLat2 = lat2 * Math.PI / 180.0;
+      var radLat1 = (lat1 * Math.PI) / 180.0;
+      var radLat2 = (lat2 * Math.PI) / 180.0;
       var a = radLat1 - radLat2;
-      var b = lng1 * Math.PI / 180.0 - lng2 * Math.PI / 180.0;
+      var b = (lng1 * Math.PI) / 180.0 - (lng2 * Math.PI) / 180.0;
       var s =
         2 *
         Math.asin(
@@ -134,7 +139,7 @@ export default {
       return s;
     },
     change(lat, lng) {
-      var x_pi = 3.14159265358979324 * 3000.0 / 180.0;
+      var x_pi = (3.14159265358979324 * 3000.0) / 180.0;
       var x = parseFloat(lng);
       var y = parseFloat(lat);
       var z = Math.sqrt(x * x + y * y) + 0.00002 * Math.sin(y * x_pi);
@@ -201,7 +206,7 @@ export default {
     _this.urlData = JSON.parse(localStorage.getItem("cloudEvaluationUrlData"));
 
     //点位Id
-   // localStorage.setItem("cloudEvaluationPointId", "1567508064829635");
+    // localStorage.setItem("cloudEvaluationPointId", "1573198343948250");
     //用户ID
     /* localStorage.setItem(
       "cloudEvaluationOpenId",
