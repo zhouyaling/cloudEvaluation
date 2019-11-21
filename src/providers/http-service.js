@@ -104,8 +104,8 @@ export function post(url, data = {}) {
               var url = window.location.href;
               url = url.split('#/');
               localStorage.setItem("cloudEvaluationIsHref", url[1]);
-              window.location.href = "http://dev.tq-service.com/evaluate/weiXinUserInfoController/getuserinfo";
-              // window.location.href = "http://www.tq-service.com/evaluate/weiXinUserInfoController/getuserinfo";
+              // window.location.href = "http://dev.tq-service.com/evaluate/weiXinUserInfoController/getuserinfo";
+               window.location.href = "http://www.tq-service.com/evaluate/weiXinUserInfoController/getuserinfo";
             }, 3000);
           }
         }
