@@ -54,7 +54,7 @@
         </div>
 
       </div>
-      <div class="page_div" style="width: 100%;margin-bottom: 0.7rem"></div>
+      <div class="page_div" style="width: 100%;margin-bottom: 1.2rem"></div>
     </div>
     <div class="callPhoneDiv">
       <a class="callPhoneA" href="tel:952191"><img class="callPhoneAImg"

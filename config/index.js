@@ -10,7 +10,15 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/mdm': {
+          target: 'http//10.15.208.12:8080',
+          // target: 'http//localhost:8081',
+          pathRewrite: {
+              '^mdm': '/mdm'
+          }
+      }
+  },
 
     // Various Dev Server settings
     host: '0.0.0.0', // can be overwritten by process.env.HOST
