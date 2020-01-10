@@ -13,17 +13,33 @@
         </div>
       </div>
 
-      <div class="page_div " style="background: #ffffff;z-index: 10" v-for="(item,index) in data" :key="index" >
+      <div
+        class="page_div"
+        style="background: #ffffff;z-index: 10"
+        v-for="(item,index) in data"
+        :key="index"
+      >
         <!---->
-        <div class="appra_title"  :id="`tipName` + index">{{item.titleName}}</div>
+        <div class="appra_title" :id="`tipName` + index">{{item.titleName}}</div>
         <div class="page_div">
           <div class="appra_score_img_div">
-            <img class="appra_score_img" src="../assets/A005.png" v-for="(itemG,indexG) in grade"
-                 v-if="(indexG+1)<=item.score" @click="setGrade(indexG,index)" :key="indexG">
+            <img
+              class="appra_score_img"
+              src="../assets/A005.png"
+              v-for="(itemG,indexG) in grade"
+              v-if="(indexG+1)<=item.score"
+              @click="setGrade(indexG,index)"
+              :key="indexG"
+            />
           </div>
           <div class="appra_score_img_divT">
-            <img class="appra_score_img" src="../assets/A004.png" v-for="(itemG,indexG) in grade"
-                 @click="setGrade(indexG,index)" :key="indexG">
+            <img
+              class="appra_score_img"
+              src="../assets/A004.png"
+              v-for="(itemG,indexG) in grade"
+              @click="setGrade(indexG,index)"
+              :key="indexG"
+            />
           </div>
           <div class="appra_score_img_num">
             <!--{{item.score}}-->
@@ -34,44 +50,67 @@
             <span class="appra_score_img_num_span" v-if="item.score==1">很差</span>
           </div>
         </div>
-        <div class="page_div remindertext" v-if="item.score<4&&item.score!=0">
-          请告诉小金妹您不满意的原因吧~
-        </div>
-        <div class="page_div appra_checkbox_margin" v-if="item.score<4&&item.score!=0" >
+        <div class="page_div remindertext" v-if="item.score<4&&item.score!=0">请告诉小金妹您不满意的原因吧~</div>
+        <div class="page_div appra_checkbox_margin" v-if="item.score<4&&item.score!=0">
           <!---->
-          <div class="appra_checkbox " :class="items.isNO ? 'appra_checkbox_active' : '' "
-               v-for="(items,indexs) in item.listBarT" @click="checkbox(indexs,index)" :key="indexs"> {{items.name}} 
-          </div>
+          <div
+            class="appra_checkbox"
+            :class="items.isNO ? 'appra_checkbox_active' : '' "
+            v-for="(items,indexs) in item.listBarT"
+            @click="checkbox(indexs,index)"
+            :key="indexs"
+          >{{items.name}}</div>
         </div>
-        <div class="page_div appra_textarea_border" v-if="item.score<4&&item.score!=0" :id="`subTipName` + index">
+        <div
+          class="page_div appra_textarea_border"
+          v-if="item.score<4&&item.score!=0"
+          :id="`subTipName` + index"
+        >
           <div class="page_div">
-            <div class="appra_checkbox_tex appra_checkbox_active" v-for="(itemIs,indexIs) in item.listBarT"
-                 v-if="itemIs.isNO" @click="checkbox(indexIs,index)" :key="indexIs">
+            <div
+              class="appra_checkbox_tex appra_checkbox_active"
+              v-for="(itemIs,indexIs) in item.listBarT"
+              v-if="itemIs.isNO"
+              @click="checkbox(indexIs,index)"
+              :key="indexIs"
+            >
               {{itemIs.name}}
-              <img class="appra_checkbox_tex_img" src="../assets/A006.png"></div>
+              <img class="appra_checkbox_tex_img" src="../assets/A006.png" />
+            </div>
           </div>
           <!--<textarea class="appra_textarea" placeholder="请告诉小金妹您不满意的原因吧~"></textarea>-->
         </div>
-
       </div>
-      <div class="page_div" style="width: 100%;margin-bottom: 1.2rem"></div>
+      <!-- 手机号 -->
+      <div class="page_div">
+        <div class="label-tilte">手机号</div>
+        <input
+          id="tipnumber"
+          class="label_input"
+          v-model="phone"
+          type="number"
+          placeholder="请输入您的电话"
+        />
+      </div>
+      <div class="page_div" style="width: 100%;margin-bottom: 1.3rem"></div>
     </div>
     <div class="callPhoneDiv">
-      <a class="callPhoneA" href="tel:952191"><img class="callPhoneAImg"
-                                                   src="../assets/phone.png">服务监督电话</a>
+      <a class="callPhoneA" href="tel:952191">
+        <img class="callPhoneAImg" src="../assets/phone.png" />服务监督电话
+      </a>
     </div>
     <div class="popu_div" v-if="userPhone"></div>
     <!--infor-->
     <div class="popu_infro_div_contentT" v-if="userPhone">
       <div class="popu_div_content_title">提示信息</div>
-      <div class="popu_div_content_con">请<span class="popu_div_content_con_color">填写姓名和电话号码</span>，方便中奖后工作人员联系奖品领取！
+      <div class="popu_div_content_con">
+        请
+        <span class="popu_div_content_con_color">填写姓名和电话号码</span>，方便中奖后工作人员联系奖品领取！
       </div>
       <!--<input class="popu_div_content_input" placeholder="请输入您的姓名"/>-->
-      <input class="popu_div_content_input" type="number" v-model="phone" placeholder="请输入您的电话"/>
-      <div class="popu_div_content_btn bg_wi ">
-        <div class="popu_div_content_btn " @click="noPopu">
-          确定
-        </div>
+      <input class="popu_div_content_input" type="number" v-model="phone" placeholder="请输入您的电话" />
+      <div class="popu_div_content_btn bg_wi">
+        <div class="popu_div_content_btn" @click="noPopu">确定</div>
         <!--<div class="popu_div_content_btn_le popu_div_content_btn_no" @click="noPopu">-->
         <!--取消-->
         <!--</div>-->
@@ -79,7 +118,6 @@
         <!--保存-->
         <!--</div>-->
       </div>
-
     </div>
     <!--<div class="appra_msg_tishi" v-if="!isShow">-->
     <!--当前点位还未开启暂时不可以评价哦!-->
@@ -87,7 +125,11 @@
     <!--infor-->
     <div class="appra_btn" v-if="isShow">
       <div class="appra_btn_div appra_btn_div_one" @click="sendScoreT">我要报事</div>
-      <div class="appra_btn_div appra_btn_div_tow" @click="sendScore">提交问卷</div>
+      <div
+        class="appra_btn_div appra_btn_div_tow"
+        v-bind:class="!submitStatus?'spec-style':''"
+        @click="sendScore"
+      >提交问卷</div>
     </div>
   </div>
 </template>
@@ -109,7 +151,9 @@ export default {
       user: {},
       userPhone: false,
       isPJ: false,
-      isShow: false
+      isShow: false,
+      phone: "",
+      submitStatus: true
     };
   },
   computed: {},
@@ -131,6 +175,9 @@ export default {
         data: formData
       };
       this.$server.getScoreItem(data).then(data => {
+        if (data.data.phone) {
+          _this.phone = data.data.phone;
+        }
         var data = data.data.listData;
         /*  var data = [{"listBar":"蚊子多,垃圾多,灰尘多,园区草木未休剪","projectName":"金科智慧城",
              "id":"1556076878833117","surveyName":"4.24","surveyId":"1556076878832716","titleName":"环境测试"},
@@ -181,12 +228,12 @@ export default {
         data: formData
       };
       this.$server.judgeComplete(data).then(data => {
-       // _this.isPJ = true;
-       console.log("判断是否评价");
-       if(data.errcode==1){
+        // _this.isPJ = true;
+        console.log("判断是否评价");
+        if (data.errcode == 1) {
           _this.isPJ = true;
-       }
-       /* else{
+        }
+        /* else{
           Toast({
           message: "您今天已经评价过!",
           position: "bottom",
@@ -249,6 +296,29 @@ export default {
         };
         ArrData.push(Arr);
       }
+
+      // 监测手机号是否填写
+      if (!_this.phone) {
+        document.querySelector("#tipnumber").scrollIntoView();
+        Toast({
+          message: "请填写手机号",
+          position: "bottom",
+          duration: 5000
+        });
+        return;
+      }
+
+      var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+      if (_this.phone && !myreg.test(_this.phone)) {
+        document.querySelector("#tipnumber").scrollIntoView();
+        Toast({
+          message: "请填写正确手机号",
+          position: "bottom",
+          duration: 5000
+        });
+        return;
+      }
+
       // console.log(ArrData)
       let listData = {
         pointId: _this.PointId,
@@ -258,7 +328,7 @@ export default {
         projectName: _this.projectName,
         projectId: _this.projectId,
         userId: _this.openId,
-        // "phone": _this.phone,
+        phone: _this.phone,
         listData: ArrData
       };
 
@@ -270,10 +340,12 @@ export default {
         data: formData
       };
 
+      
       // 挡板
       // return;
-
+      _this.submitStatus = false;
       this.$server.sendScore(data).then(data => {
+        _this.submitStatus = true;
         _this.isPJ = false;
         Toast({
           message: "已提交评价",
@@ -314,7 +386,7 @@ export default {
     _this.projectName = localStorage.getItem("cloudEvaluationProjectName");
     _this.PointName = localStorage.getItem("cloudEvaluationPointName");
     _this.getScoreItem();
-    // _this.getUserInfor();
+    //_this.getUserInfor();
     _this.judgeComplete();
   }
 };

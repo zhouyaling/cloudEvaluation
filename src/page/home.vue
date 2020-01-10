@@ -60,7 +60,7 @@ export default {
       let _this = this;
 
       // 挡板
-      /* _this.$router.push({
+     /*  _this.$router.push({
         name: "appraise"
       });
       return; */
@@ -205,13 +205,14 @@ export default {
     let _this = this;
     _this.urlData = JSON.parse(localStorage.getItem("cloudEvaluationUrlData"));
 
+  // 挡板
     //点位Id
-    // localStorage.setItem("cloudEvaluationPointId", "1573198343948250");
+    // localStorage.setItem("cloudEvaluationPointId", "1578442632865191");
     //用户ID
-    /* localStorage.setItem(
+     /*  localStorage.setItem(
       "cloudEvaluationOpenId",
       "oK0Jcv6pyM_thF3HbrZ01jd9sefg"
-    ); */
+    );   */
 
     _this.OpenId = localStorage.getItem("cloudEvaluationOpenId");
     _this.PointId = localStorage.getItem("cloudEvaluationPointId");
