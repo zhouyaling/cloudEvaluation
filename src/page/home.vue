@@ -205,14 +205,15 @@ export default {
     let _this = this;
     _this.urlData = JSON.parse(localStorage.getItem("cloudEvaluationUrlData"));
 
-  // 挡板
-    //点位Id
+    // 挡板
+    
+    // 点位Id
     // localStorage.setItem("cloudEvaluationPointId", "1578442632865191");
-    //用户ID
-     /*  localStorage.setItem(
-      "cloudEvaluationOpenId",
-      "oK0Jcv6pyM_thF3HbrZ01jd9sefg"
-    );   */
+    // 用户ID
+    //  localStorage.setItem(
+    //  "cloudEvaluationOpenId",
+    //  "oK0Jcv6pyM_thF3HbrZ01jd9sefg"
+    //);  
 
     _this.OpenId = localStorage.getItem("cloudEvaluationOpenId");
     _this.PointId = localStorage.getItem("cloudEvaluationPointId");

@@ -10,6 +10,15 @@ axios.interceptors.request.use(
     config.headers = {
       'Content-Type': "application/json",
     };
+
+    /* if(config.url.indexOf('appController/sendScore')>-1){
+      var openID = localStorage.getItem("cloudEvaluationOpenId");
+      config.headers = {
+        'Content-Type': "application/json",
+        'Open-Id':openID
+      };
+    } */
+
     return config;
   },
   error => {
@@ -87,7 +96,7 @@ export function post(url, data = {}) {
   return new Promise((resolve, reject) => {
     axios.post(url, data.data)
       .then(response => {
-
+        debugger;
         Indicator.close();
 
         if (response.data.errcode == "1") {
@@ -104,8 +113,8 @@ export function post(url, data = {}) {
               var url = window.location.href;
               url = url.split('#/');
               localStorage.setItem("cloudEvaluationIsHref", url[1]);
-               //window.location.href = "http://dev.tq-service.com/evaluate/weiXinUserInfoController/getuserinfo";
-               window.location.href = "http://www.tq-service.com/evaluate/weiXinUserInfoController/getuserinfo";
+               window.location.href = "http://dev.tq-service.com/evaluate/weiXinUserInfoController/getuserinfo";
+               //window.location.href = "http://www.tq-service.com/evaluate/weiXinUserInfoController/getuserinfo";
             }, 3000);
           }
         }
